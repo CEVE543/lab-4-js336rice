@@ -694,4 +694,10 @@ How might geographic or climatic factors explain these differences?
 Should we have used different priors for each station?
 Do the return level uncertainties overlap significantly, or are they distinct?
 What does this tell you about spatial variability in extreme precipitation?
+
+They're fairly similar, but the log-scale posterior is bigger for Galveston.  This could be related to it being coastal, while Alvin is further inland. A coastal location could lend itself to fatter tails with bigger storms, and a larger shape posterior as a result.
+
+Strangely though, this doesn't seem to be reflected on the uncertainty bounds?  Alvin's uncertainty bounds are wider than Galveston's.  It's not reflected in the data either.  The Alvin data has a large spike in it, which could be what the wider boundsa are due to.  So I'm not sure why Alvin has a smaller distribution of the scale posterior. 
+
+Other than that, the stations have fairly simlar parameters.  The return levels do overlap quite significanlty, which makes sense, given the geographic closeness of these two stations.  
 :::
