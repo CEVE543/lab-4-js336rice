@@ -13,6 +13,8 @@ objectives:
 ps_connection: "Builds Bayesian GEV toolkit for PS1 Tasks 1 and 3"
 
 engine: julia
+julia:
+  exeflags: ["+1.11"]
 
 format:
   html:
@@ -177,7 +179,7 @@ Next, choose the same station you used in Lab 3 for your analysis.
 
 
 ```{julia}
-my_stnid = 111  # REQUIRED: replace with your chosen station ID
+my_stnid = 779  # REQUIRED: replace with your chosen station ID
 my_station = @chain stations begin
     @filter(stnid == !!my_stnid)  # <1>
     first
@@ -311,6 +313,8 @@ end
 ## Think
 
 Are these return level curves reasonable for Houston's climate, based on your domain knowledge?
+
+I would say yes!  Considering Harvey was about 30 inches of rainfall, and was considered in excess of the 500 year storm. 
 :::
 
 ### Priors on Return Levels
@@ -380,7 +384,7 @@ As before, we generate these samples
 prior_idata_v2 = let
     fname = joinpath(lab_dir, "prior_v2.nc")
     model = gev_model_quantile_priors([]; return_level_priors=return_level_priors)
-    overwrite = true
+    overwrite = false
     load_or_sample(fname, model; overwrite=overwrite)
 end
 prior_GEVs_v2 = vec(GeneralizedExtremeValue.(prior_idata_v2.posterior.μ, exp.(prior_idata_v2.posterior.log_σ), prior_idata_v2.posterior.ξ))
@@ -411,6 +415,8 @@ Do these make sense?
 Are the uncertainties too tight or too wide?
 Go back and revise your `return_level_priors` if needed.
 When you're happy with your answers, set `overwrite=false` so you can load cached results in the future.
+
+Hard to say?  I'm not sure if I really know how tight is too tight, or how wide is too wide.  But it definitely tightened up a lot in V2. 
 :::
 
 ## Inference 
@@ -583,6 +589,8 @@ end
 fig_densities_primary = plot_marginal_densities(posterior_idata, "Primary Station:")
 ```
 
+These graphics have this funny little bar on them, but I'm not sure why.  Whty all have it. 
+
 ## Two-Station Comparison
 
 In lab 3, you compared MLE return levels between two stations.
@@ -597,7 +605,7 @@ nearest_stations = find_nearest_stations(my_station, stations, 5)
 We will pick one of these five nearest stations for comparison
 
 ```{julia}
-comparison_stnid = 478 # MODIFY THIS AND CHOOSE YOUR COMPARISON
+comparison_stnid = 93 # MODIFY THIS AND CHOOSE YOUR COMPARISON
 
 comparison_station = @chain stations begin
     @filter(stnid == !!comparison_stnid)
