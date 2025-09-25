@@ -70,25 +70,25 @@ To submit your work, push your changes to GitHub, render to PDF, and upload the 
 
 ## Your Analysis {.unnumbered}
 
-::: {.callout-important}
-## Instructions
-Delete this entire section (including the "Do Before Lab" and "Do During Lab" sections above) and replace it with your analysis responses. Use the numbered format below for your final submission.
-:::
 
 **Response 1: Prior Evolution and Justification**
-*How did your understanding of Houston's extreme rainfall evolve through the iterative prior specification process? What knowledge sources proved most valuable for extreme value analysis?*
+The posterior confidence interval is definitely a big upgrade compared to the prior confidence interval in terms of narrowing it down.  The range of the distributions is about what I'd expect if we assume stationarity. 
 
 **Response 2: Data Learning and Posterior Insights**
-*How did the observed data change your prior beliefs about GEV parameters? What does this reveal about the balance between domain knowledge and empirical evidence in Bayesian analysis?*
+I definitely expected Galveston to have both a wider distribution, and also a higher end to that distribution, when compared to Alvin.  I also didn't expect the scale parameter to be the most different thing between the two of them.  
+
+Ultimately, we live in an era where our data on these events is still limited to only about 100 years at most.  Domain knowledge is critical for us, since we haven't had enought time to establish robust trends solely based on empirical evidence, as shown by the Alvin vs. Galveston comparison being thrown off by one major storm. 
 
 **Response 3: Two-Station Bayesian Comparison**
-*Should the same priors apply to both stations? How do posterior differences relate to geographic and climatic factors, and what are the implications for regional analysis?*
+Definitely not.  In theory, Galveston should have more extreme weather due to its more coastal location, but in practice, Alvin has a more extreme distribution.  This is an example of how domain knowledge is critical for regional analysis, as our empirical observations run in contradiction to it. 
 
 **Response 4: Uncertainty Quantification and Model Validation**
-*How does Bayesian uncertainty quantification compare to MLE approaches? What do the diagnostic results tell you about model reliability?*
+Bayesian uncertainty quantification is much better able to capture the range of possible values when compared to MLE.  Our diagnostics reflect a reliable model, with Rhat values of 1.00 for each factor.
 
 **Response 5: Bayesian Workflow for PS1**
-*How will this iterative workflow experience help you tackle regional extreme value analysis in PS1? What challenges do you anticipate?*
+This will help us do section 4, the regional parameter estimation section.  It'll help us select which GEV values should vary or remain stationary across which regions. 
+
+I anticipate that applying these principles across time to do non-stationary analysis will be the biggest challenge. 
 
 ## Data Setup and Package Loading
 
@@ -589,7 +589,7 @@ end
 fig_densities_primary = plot_marginal_densities(posterior_idata, "Primary Station:")
 ```
 
-These graphics have this funny little bar on them, but I'm not sure why.  Whty all have it. 
+
 
 ## Two-Station Comparison
 
