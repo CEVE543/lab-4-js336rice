@@ -72,20 +72,27 @@ To submit your work, push your changes to GitHub, render to PDF, and upload the 
 
 
 **Response 1: Prior Evolution and Justification**
+
 The posterior confidence interval is definitely a big upgrade compared to the prior confidence interval in terms of narrowing it down.  The range of the distributions is about what I'd expect if we assume stationarity. 
 
 **Response 2: Data Learning and Posterior Insights**
+
 I definitely expected Galveston to have both a wider distribution, and also a higher end to that distribution, when compared to Alvin.  I also didn't expect the scale parameter to be the most different thing between the two of them.  
 
 Ultimately, we live in an era where our data on these events is still limited to only about 100 years at most.  Domain knowledge is critical for us, since we haven't had enought time to establish robust trends solely based on empirical evidence, as shown by the Alvin vs. Galveston comparison being thrown off by one major storm. 
 
 **Response 3: Two-Station Bayesian Comparison**
-Definitely not.  In theory, Galveston should have more extreme weather due to its more coastal location, but in practice, Alvin has a more extreme distribution.  This is an example of how domain knowledge is critical for regional analysis, as our empirical observations run in contradiction to it. 
+
+The priors should definitely not apply to both stations, or at least, the scale parameter shouldn't.  
+
+In theory, Galveston should have more extreme weather due to its more coastal location, but in practice, Alvin has a more extreme distribution.  This is an example of how domain knowledge is critical for regional analysis, as our empirical observations run in contradiction to it. 
 
 **Response 4: Uncertainty Quantification and Model Validation**
+
 Bayesian uncertainty quantification is much better able to capture the range of possible values when compared to MLE.  Our diagnostics reflect a reliable model, with Rhat values of 1.00 for each factor.
 
 **Response 5: Bayesian Workflow for PS1**
+
 This will help us do section 4, the regional parameter estimation section.  It'll help us select which GEV values should vary or remain stationary across which regions. 
 
 I anticipate that applying these principles across time to do non-stationary analysis will be the biggest challenge. 
